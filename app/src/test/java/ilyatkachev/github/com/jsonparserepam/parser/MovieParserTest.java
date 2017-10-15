@@ -40,7 +40,7 @@ public class MovieParserTest {
     }
 
     @Test
-    public void parseForJSON() throws Exception {
+    public void parseForJson() throws Exception {
         InputStream mockedInputStream = StreamMocks.stream(JSON_SOURCE_FILE);
         when(mHttpClient.request(Matchers.anyString())).thenReturn(mockedInputStream);
         InputStream response = mHttpClient.request("http://");
@@ -48,7 +48,22 @@ public class MovieParserTest {
         final MovieParserFactory movieParserFactory = new MovieParserFactory();
         final IMovie movie = movieParserFactory.createJsonParser(IOUtils.toString(response)).parse();
         assertEquals(EXPECTED_ID, movie.getId());
-        assertEquals(EXPECTED_TITLE,movie.getTitle());
-        assertEquals(EXPECTED_GENRE_IDS_COUNT,movie.getGenreIds().size());
+        assertEquals(EXPECTED_TITLE, movie.getTitle());
+        assertEquals(EXPECTED_GENRE_IDS_COUNT, movie.getGenreIds().size());
+        assertEquals(12, movie.getGenreIds().get(0).intValue());
+    }
+
+    @Test
+    public void parseForGson() throws Exception {
+        InputStream mockedInputStream = StreamMocks.stream(JSON_SOURCE_FILE);
+        when(mHttpClient.request(Matchers.anyString())).thenReturn(mockedInputStream);
+        InputStream response = mHttpClient.request("http://");
+
+        final MovieParserFactory movieParserFactory = new MovieParserFactory();
+        final IMovie movie = movieParserFactory.createGsonParser(IOUtils.toString(response)).parse();
+        assertEquals(EXPECTED_ID, movie.getId());
+        assertEquals(EXPECTED_TITLE, movie.getTitle());
+        assertEquals(EXPECTED_GENRE_IDS_COUNT, movie.getGenreIds().size());
+        assertEquals(12, movie.getGenreIds().get(0).intValue());
     }
 }
