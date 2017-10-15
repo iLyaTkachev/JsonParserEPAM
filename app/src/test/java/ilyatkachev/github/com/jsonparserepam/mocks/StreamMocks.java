@@ -8,7 +8,7 @@ public class StreamMocks {
 
     public static InputStream stream(final String pSource) {
         final InputStream resourceAsStream = StreamMocks.class.getClassLoader().getResourceAsStream(pSource);
-        Assert.assertNotNull("resource not found, maybe you forget add .json?", resourceAsStream);
+        Assert.assertNotNull("Resource not found!", resourceAsStream);
         return resourceAsStream;
     }
 }
