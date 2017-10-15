@@ -1,6 +1,5 @@
 package ilyatkachev.github.com.jsonparserepam.Model.Json;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ilyatkachev.github.com.jsonparserepam.Model.IMovie;
