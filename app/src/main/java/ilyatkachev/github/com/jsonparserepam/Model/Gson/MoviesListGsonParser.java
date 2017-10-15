@@ -4,16 +4,14 @@ import com.google.gson.Gson;
 
 import java.util.Arrays;
 
-import ilyatkachev.github.com.jsonparserepam.Model.IMovie;
-import ilyatkachev.github.com.jsonparserepam.Model.IMovieParser;
 import ilyatkachev.github.com.jsonparserepam.Model.IMoviesList;
 import ilyatkachev.github.com.jsonparserepam.Model.IMoviesListParser;
 
-public class MovieListGsonParser implements IMoviesListParser {
+public class MoviesListGsonParser implements IMoviesListParser {
 
     private final String mSource;
 
-    public MovieListGsonParser(String pSource) {
+    public MoviesListGsonParser(String pSource) {
         mSource = pSource;
     }
 

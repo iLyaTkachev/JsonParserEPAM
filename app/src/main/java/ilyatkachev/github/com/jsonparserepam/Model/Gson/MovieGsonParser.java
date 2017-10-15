@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 
 import ilyatkachev.github.com.jsonparserepam.Model.IMovie;
 import ilyatkachev.github.com.jsonparserepam.Model.IMovieParser;
-import ilyatkachev.github.com.jsonparserepam.Model.IMoviesList;
 
 public class MovieGsonParser implements IMovieParser {
 
